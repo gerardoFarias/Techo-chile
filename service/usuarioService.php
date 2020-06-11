@@ -62,6 +62,48 @@
             }
         }
 
+        function addNewUser($entity){
+            $usuario = new Usuario();
+
+            $res = $usuario->addUser($entity);
+            if($res){
+                $this->success('Nuevo usuario registrado');
+            }else{
+                $this->error('No se pudo insertar el usuario');
+            }
+
+            
+        }
+
+
+        function modifyUser($entity){
+            $usuario = new Usuario();
+
+            $res = $usuario->modifyUserExist($entity);
+            if($res){
+                $this->success('Usuario modificado correctamente');
+            }else{
+                $this->error('No se pudo modificar el usuario');
+            }
+
+        }
+
+        function deleteUser($id){
+            
+            $usuario = new Usuario();
+            $res = $usuario->deleteUserExist($id);
+
+            if($res){
+                $this->success('Usuario eliminado correctamente');
+            }else{
+                $this->error('No se pudo eliminar el usuario');
+            }
+
+        }
+
+        function success($mensaje){
+            echo json_encode(array('mensaje' => $mensaje));
+        }
 
         function printJSON($array){
             echo  json_encode($array) ;
