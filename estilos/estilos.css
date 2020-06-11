@@ -43,6 +43,19 @@ footer .social_icons li a {
    
 
 }
+
+.container-body2
+{
+   
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQMPsOLYcxPP5ICqnDkitqAWBxHyMBRVuM0_zqmTp5AY6ck57H0&usqp=CAU);
+    background-repeat: no-repeat;
+   
+    
+    background-size: cover;
+    position: relative;
+   
+
+}
 .container-body::before
 {
     content: "";
@@ -71,4 +84,9 @@ footer .social_icons li a {
 marquee
 {
     color: blanchedalmond;
+}
+
+#footer
+{
+    padding-left: 100px;;
 }
