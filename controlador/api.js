@@ -16,15 +16,29 @@ region.addEventListener('change',function(){
   })
   .then(r => r.json())
   .then(data => {
-      
-    console.log(data.data);
+      var comuna = data.data
+    console.log(comuna);
+
+    var filtro = comuna.filter(con => con.comuna);
+    consolel.log()
+    
   })
   
 
   });
 
+var defaultBounds = new google.maps.LatlngBounds(
+new google.maps.Latlng(-35.675148 ),
+new google.maps.Latlng(-71.5429688));
+
+var options = {
+  bounds : defaulBounds
+};
+
+var input =document.getElementById('pac-input');
+map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
 
-
-
-
+var autocomplete = new google.maps.places.Autocomplete(input,options);
+ 
+ 

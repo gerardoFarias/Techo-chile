@@ -8,6 +8,7 @@
  <link rel="stylesheet" href="https://code.jquery.com/jquery-3.5.1.slim.min.js">
  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
     <title>TECHO-CHILE</title>
 
 </head>
@@ -15,7 +16,7 @@
 
  <nav class="navbar navbar-expand-lg navbar-light header">
  <a href="http://www.localhost/Proyecto%20techo-chile/vista/index.html"><img src="https://www.techo.org/chile/wp-content/themes/techochile/images/head/logo.png" alt="Chile" title="Chile" class="logo-foot"></a>
-<marquee behavior="" direction=""> " Nuestro país tiene una inmensa urgencia de un mínimo, al menos, de bienestar, sea extendido a gran número de ciudadanos que hoy carecen de una vida que se pueda llamar humana "</marquee>
+<marquee behavior="" direction="" id="marqueeRe"> "NUESTRO PROPÓSITO ES COMBATIR LA EXCLUSIÓN CONSTRUYENDO CIUDADES JUSTAS Y SOSTENIBLES "</marquee>
   </nav>
 
  
@@ -26,7 +27,7 @@
  
   <div class="container-body2 "  style=" position: relative; display: block; /* z-index: 2; */ opacity: 1;">
   <div class="container " id="formulario">
-  <h4 >MESA DE TRABAJO</h4>
+  <h4 class="text-center">INGRESO MESA DE TRABAJO</h4>
 <!-- /************************FORMULARIO MESA DE TRABAJO******************************* */
  --><div class="form-row " >
 <div class="form-group col-12 text-light">
@@ -57,17 +58,23 @@
         <option>Disabled select</option>
       </select>
 
-      <label for="disabledSelect">Comunidad</label>
-      <select id="SelecComu" class="form-control">
-        <option>Disabled select</option>
-      </select>
-
-      <label for="disabledSelect"  >Nombre</label>
+      <label for="disabledSelect"  >Provincia</label>
         <select class="form-control"  id="SelecNom">
         <option >Disabled select</option>
       </select>
 
+      <label for="disabledSelect">Comunidad</label>
+      <input type="text" class="form-control" >
 
+
+      
+
+      <label for="disabledSelect"  >Nombre</label>
+      <input type="text" class="form-control" >
+
+      <label for="disabledSelect"  id="search_input">Ubicacion</label>
+      <input type="text" class="form-control" id="pac-input" >
+      
   
 
 
@@ -79,8 +86,7 @@
 <div class="form-group col-md-12 mapa">
   <div class="card text-white bg-primary mb-12" style="max-width: 100%; height:500px">
     <div class="card-header">UBICACION GEOGRAFICA</div>
-    
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3326.84046809187!2d-70.77134438508956!3d-33.50552750772653!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c2d48a47a31b%3A0x9e73bd8fb1b4b146!2sLibertad%20914%2C%20Maip%C3%BA%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses!2scl!4v1591773488345!5m2!1ses!2scl" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+    <div id="map-canvas"></div>
    
   </div>
   </div>
@@ -91,7 +97,7 @@
 
 
 
-<footer class=" footer ">
+<footer class=" footer " >
 <div class="container">
 <div class="row">
         <div class="col-md-3"> 
@@ -111,8 +117,8 @@
           </ul>
           
         </div>
-        <div class="col-md-5 text-light  text-right">
-            <br> <br>
+        <div class="col-md-4 text-light  text-right">
+          <br>
          <div class="row text-right ">
                  <h7>PROYECTO TECHO-CHILE 2020   GERARDO FARÍAS  <i class="far fa-registered"></i></h7>
             </div>
@@ -123,6 +129,7 @@
 </div>
 
 </footer>
+
 
 <script src="../controlador/api.js"></script>
 <script src="https://kit.fontawesome.com/18782b87ee.js" crossorigin="anonymous"></script>
