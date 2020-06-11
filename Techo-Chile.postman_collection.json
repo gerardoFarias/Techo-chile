@@ -1,0 +1,147 @@
+{
+	"info": {
+		"_postman_id": "bb373b8d-ee13-4ddd-be52-a62603b55071",
+		"name": "Techo-Chile",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET_USUARIOS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/techochile/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"techochile",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET_USUARIO",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/techochile/?id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"techochile",
+						""
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST_USUARIO",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombres\":\"dirigente\",\r\n    \"apellido_paterno\":\"dirigente\",\r\n    \"apellido_materno\":\"dirigente\",\r\n    \"email\":\"dirigente2@gmail.com\",\r\n    \"password\":\"1234567\",\r\n    \"estado\":1,\r\n    \"perfil_id\":2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/Techo-chile/api/user.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Techo-chile",
+						"api",
+						"user.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT_USUARIO",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":4,\r\n    \"nombres\":\"dirigenteNuevo\",\r\n    \"apellido_paterno\":\"dirigenteNuevo\",\r\n    \"apellido_materno\":\"dirigenteNuevo\",\r\n    \"email\":\"dirigenteNuevo@gmail.com\",\r\n    \"password\":\"1234567\",\r\n    \"estado\":1,\r\n    \"perfil_id\":2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/Techo-chile/api/user.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Techo-chile",
+						"api",
+						"user.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE_USER",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":4,\r\n    \"nombres\":\"dirigenteNuevo\",\r\n    \"apellido_paterno\":\"dirigenteNuevo\",\r\n    \"apellido_materno\":\"dirigenteNuevo\",\r\n    \"email\":\"dirigenteNuevo@gmail.com\",\r\n    \"password\":\"1234567\",\r\n    \"estado\":1,\r\n    \"perfil_id\":2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/Techo-chile/api/user.php?id=4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Techo-chile",
+						"api",
+						"user.php"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
