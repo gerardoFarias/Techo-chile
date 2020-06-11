@@ -1,15 +1,18 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../estilos/estilos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<!--     <link rel="stylesheet" href="https://code.jquery.com/jquery-3.5.1.slim.min.js">
+ -->    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <title>TECHO-CHILE</title>
 
 </head>
 <body  >
-  
 
  <nav class="navbar navbar-expand-lg navbar-light header">
  <a href="https://www.techo.org/chile/"><img src="https://www.techo.org/chile/wp-content/themes/techochile/images/head/logo.png" alt="Chile" title="Chile" class="logo-foot"></a>
@@ -24,29 +27,50 @@
 <!-- /************************FORMULARIO MESA DE TRABAJO******************************* */
  --><div class="form-row ">
 <div class="form-group col-4 text-light">
-      <label for="disabledSelect">Nombre</label>
-      <select id="disabledSelect" class="form-control">
-        <option>Disabled select</option>
-      </select>
+    
 
       <label for="disabledSelect">Region</label>
-      <select id="disabledSelect" class="form-control">
-        <option>Disabled select</option>
+      <select id="SelecRegion" name="region" class="form-control">
+       
+  <?php 
+       include ('bd.php');
+      $consulta="SELECT * FROM region";
+      $ejecutar = mysqli_query($bd,$consulta) or die(mysqli_error($bd));
+
+
+?>
+
+
+
+<?php  foreach ($ejecutar as $opciones): ?>
+
+<option value="<?php echo $opciones['Nombre_region'] ?>"><?php echo $opciones['Nombre_region'] ?></option>
+
+
+<?php endforeach ?>
+
+</select>
+      <label for="disabledSelect"  >Nombre</label>
+        <select class="form-control"  id="SelecNom">
+        <option >Disabled select</option>
       </select>
 
       <label for="disabledSelect">Comuna</label>
-      <select id="disabledSelect" class="form-control">
+      <select id="SelectCom" class="form-control">
         <option>Disabled select</option>
       </select>
 
 
       <label for="disabledSelect">Comunidad</label>
-      <select id="disabledSelect" class="form-control">
+      <select id="SelecComu" class="form-control">
         <option>Disabled select</option>
       </select>
 
-  
-    
+  <br>
+      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#buscar">
+
+<i class="fas fa-search"></i> MODIFICAR MESA DE TRABAJO
+</button>
 </div>
 <div class="form-group col-md-2 ">
 </div>
@@ -68,34 +92,30 @@
  <div class="form-row">
 <div class="form-group col-4 text-light">
       <label for="disabledSelect">Nombre</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <input type="text" class="form-control" id="Nombre" aria-describedby="emailHelp">
 
       <label for="disabledSelect">Region</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <input type="text" class="form-control" id="Region" aria-describedby="emailHelp">
 
 
       <label for="disabledSelect">Comuna</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <input type="text" class="form-control" id="Comuna" aria-describedby="emailHelp">
     
       
 
 
       <label for="disabledSelect">Comunidad</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <input type="text" class="form-control" id="Comunidad" aria-describedby="emailHelp">
 
       <label for="disabledSelect">Ubicacion</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <input type="text" class="form-control" id="Ubicacion" aria-describedby="emailHelp">
 
 
 <br>
-<button class="col-6 btn-primary">INGRESAR</button>
+<button class="col-6 btn-primary"  >INGRESAR</button>
 <button class="COL-6 btn-danger "> LIMPIAR</button>
 <br><br>
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-success" data-toggle="modal" data-target="#buscar">
-
-<i class="fas fa-search"></i> BUSCAR MESA DE TRABAJO
-</button>
 
 <!-- Modal -->
 <div class="modal fade" id="buscar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -117,23 +137,23 @@
       <div class="form-row">
 <div class="form-group col-12 text-light">
       <label for="disabledSelect">Nombre</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <input type="email" class="form-control" id="NombreMo" aria-describedby="emailHelp">
 
       <label for="disabledSelect">Region</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <input type="email" class="form-control" id="RegionMo" aria-describedby="emailHelp">
 
 
       <label for="disabledSelect">Comuna</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <input type="email" class="form-control" id="ComunaMo" aria-describedby="emailHelp">
     
       
 
 
       <label for="disabledSelect">Comunidad</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <input type="email" class="form-control" id="ComunidadMod" aria-describedby="emailHelp">
 
       <label for="disabledSelect">Ubicacion</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <input type="email" class="form-control" id="UbicacionMo" aria-describedby="emailHelp">
 
 
   </div>
@@ -196,6 +216,7 @@
 
 </footer>
 
+<script src="../controlador/api.js"></script>
 <script src="https://kit.fontawesome.com/18782b87ee.js" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
