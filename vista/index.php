@@ -1,13 +1,12 @@
-
-
+<?php include'bd.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../estilos/estilos.css" rel="stylesheet">
-<!--     <link rel="stylesheet" href="https://code.jquery.com/jquery-3.5.1.slim.min.js">
- -->    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+ <link rel="stylesheet" href="https://code.jquery.com/jquery-3.5.1.slim.min.js">
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <title>TECHO-CHILE</title>
 
@@ -25,46 +24,47 @@
   <div class="container " id="formulario">
   <h4 >MESA DE TRABAJO</h4>
 <!-- /************************FORMULARIO MESA DE TRABAJO******************************* */
- --><div class="form-row ">
+ --><div class="form-row " >
 <div class="form-group col-4 text-light">
     
 
       <label for="disabledSelect">Region</label>
-      <select id="SelecRegion" name="region" class="form-control">
-       
-  <?php 
-       include ('bd.php');
-      $consulta="SELECT * FROM region";
-      $ejecutar = mysqli_query($bd,$consulta) or die(mysqli_error($bd));
+      <select id="SelecRegion" name="regiones" class="form-control" >
+
+  <?php while($datos = mysqli_fetch_array($query))
+  {
+    ?>
+         <option value="<?php echo  $datos['numero']?>"><?php echo $datos['nombre'] ?>  </option>
+
+<?php
+  }
+
 
 
 ?>
 
 
-
-<?php  foreach ($ejecutar as $opciones): ?>
-
-<option value="<?php echo $opciones['Nombre_region'] ?>"><?php echo $opciones['Nombre_region'] ?></option>
-
-
-<?php endforeach ?>
-
-</select>
-      <label for="disabledSelect"  >Nombre</label>
-        <select class="form-control"  id="SelecNom">
-        <option >Disabled select</option>
       </select>
+   
+
 
       <label for="disabledSelect">Comuna</label>
       <select id="SelectCom" class="form-control">
         <option>Disabled select</option>
       </select>
 
-
       <label for="disabledSelect">Comunidad</label>
       <select id="SelecComu" class="form-control">
         <option>Disabled select</option>
       </select>
+
+      <label for="disabledSelect"  >Nombre</label>
+        <select class="form-control"  id="SelecNom">
+        <option >Disabled select</option>
+      </select>
+
+
+  
 
   <br>
       <button type="button" class="btn btn-success" data-toggle="modal" data-target="#buscar">
@@ -91,21 +91,32 @@
  <br>
  <div class="form-row">
 <div class="form-group col-4 text-light">
-      <label for="disabledSelect">Nombre</label>
-      <input type="text" class="form-control" id="Nombre" aria-describedby="emailHelp">
+     
+<label>Region</label>
+      <select id="Region" name="regiones" class="form-control"  >
 
-      <label for="disabledSelect">Region</label>
-      <input type="text" class="form-control" id="Region" aria-describedby="emailHelp">
+          <?php 
+           while($datos1 = mysqli_fetch_array($query))
+           {
+           ?>
+              <option value="<?php echo  $datos1['numero']?>"><?php echo $datos1['nombre'] ?>  </option>
+
+          <?php
+          }
+          ?>
+    </select>
 
 
       <label for="disabledSelect">Comuna</label>
       <input type="text" class="form-control" id="Comuna" aria-describedby="emailHelp">
     
       
-
-
       <label for="disabledSelect">Comunidad</label>
       <input type="text" class="form-control" id="Comunidad" aria-describedby="emailHelp">
+
+
+      <label for="disabledSelect">Nombre</label>
+      <input type="text" class="form-control" id="Nombre" aria-describedby="emailHelp">
 
       <label for="disabledSelect">Ubicacion</label>
       <input type="text" class="form-control" id="Ubicacion" aria-describedby="emailHelp">
