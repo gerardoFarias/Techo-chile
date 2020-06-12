@@ -213,6 +213,110 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "GET_OBTENERMESASDETRABAJO",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/Techo-chile/api/mesaTrabajo.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Techo-chile",
+						"api",
+						"mesaTrabajo.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET_MESASTRABAJOBYCOMUNA",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/Techo-chile/api/mesaTrabajo.php?idComuna=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Techo-chile",
+						"api",
+						"mesaTrabajo.php"
+					],
+					"query": [
+						{
+							"key": "idComuna",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST_MESATRABAJO",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\":\"Mesa 2\",\r\n    \"comunidad\":\"Comunidad 2\",\r\n    \"latitud\":\"-231231\",\r\n    \"longitud\":\"-123123\",\r\n    \"estado\":1,\r\n    \"comuna_id\":91\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/Techo-chile/api/mesaTrabajo.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Techo-chile",
+						"api",
+						"mesaTrabajo.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT_MESADETRABAJO",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"id\": \"1\",\r\n        \"nombre\": \"nombre\",\r\n        \"comunidad\": \"comunidad\",\r\n        \"latitud\": \"latitud\",\r\n        \"longitud\": \"longitud\",\r\n        \"estado\": 0,\r\n        \"comuna_id\": 1\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/Techo-chile/api/mesaTrabajo.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Techo-chile",
+						"api",
+						"mesaTrabajo.php"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"protocolProfileBehavior": {}
