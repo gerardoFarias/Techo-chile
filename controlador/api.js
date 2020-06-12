@@ -15,7 +15,7 @@
             var select = $("#regiones");
            select.html("");
            data.forEach(e=>{
-                var opt  = "<option value='"+e.id+"'>"+e.region+"</option>";
+                var opt  = "<option value='"+e.region_techo+"'>"+e.region+"</option>";
                 select.append(opt); 
            })
         };
@@ -23,9 +23,25 @@
         
         $("#regiones").change(function(){
         
-          cargarProvincia($(this).val());
+          cargarMesasDeTrabajo($(this).val());
+         //cargarProvincia($(this).val());
          
         });
+
+        var cargarMesasDeTrabajo = function(idRegion){
+          $.ajax(
+            { 
+              url:"/Techo-chile/api/mesaTrabajo.php?idRegion=" +idRegion,
+              method:"GET",
+              datatype:"json"             
+
+            }).done(function(data){
+              console.log(data)
+            });
+        }
+
+
+
         var cargarProvincia=function(idRegion){
         
              $.ajax(
@@ -42,6 +58,7 @@
         
         };
         
+
         
         var llenarProvincia=function(data){
             var select = $("#provincias");

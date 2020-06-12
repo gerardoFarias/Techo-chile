@@ -9,10 +9,10 @@
 
 
         public function __construct(){
-            $this->host     ='localhost';
+            $this->host     ='192.168.99.100';
             $this->db       ='techochile';
             $this->user     = 'root';
-            $this->password = '';
+            $this->password = 'BNX65K308857';
             $this->charset  = 'utf8mb4';
         }
 

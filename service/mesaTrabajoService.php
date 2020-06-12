@@ -57,6 +57,9 @@
                     array_push($mesasTrabajos["mesasTrabajos"],$item);
                 }
 
+            }
+        
+            
                 // abrimos la sesión cURL
                 $ch = curl_init();
 
@@ -93,12 +96,16 @@
                 // cerramos la sesión cURL
                 curl_close ($ch);
 
+                //saco el numero de elementos
+                $longitud = count($mesasTrabajos["mesasTrabajos"]);
+
                 
 
-                $this->printJSON($mesasTrabajos);
-            }else{
-                $this->error('No hay elementos registrados');
-            }
+                if($longitud > 0){
+                    $this->printJSON($mesasTrabajos);
+                }else{
+                    $this->error('No hay elementos registrados');
+                }
         }
 
         function getByIdComuna($id){
