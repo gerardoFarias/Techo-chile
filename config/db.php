@@ -9,11 +9,11 @@
 
 
         public function __construct(){
-            $this->host     ='192.168.99.100';
+            $this->host     ='localhost';
             $this->db       ='techochile';
             $this->user     = 'root';
-            $this->password = 'BNX65K308857';
-            $this->charset  = 'utf8mb4';
+            $this->password = '';
+            $this->charset  = '';
         }
 
         function connect() {

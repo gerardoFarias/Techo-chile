@@ -7,9 +7,13 @@
     <link href="../estilos/estilos.css" rel="stylesheet">
  <link rel="stylesheet" href="https://code.jquery.com/jquery-3.5.1.slim.min.js">
  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
-    <title>TECHO-CHILE</title>
+<script src='https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js'></script>
+ <link href='https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css' rel='stylesheet' />
+ 
+ <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.2.0/mapbox-gl-geocoder.min.js'></script>
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.2.0/mapbox-gl-geocoder.css' type='text/css' />
+ 
+ <title>TECHO-CHILE</title>
 
 </head>
 <body  >
@@ -73,9 +77,9 @@
       <input type="text" class="form-control" >
 
       <label for="disabledSelect"  id="search_input">Ubicacion</label>
-      <input type="text" class="form-control" id="pac-input" >
+      <div  id="geocoder" class="geocoder" ></div>
       
-  
+    
 
 
 </div>
@@ -84,9 +88,10 @@
 
 </div>
 <div class="form-group col-md-12 mapa">
-  <div class="card text-white bg-primary mb-12" style="max-width: 100%; height:500px">
-    <div class="card-header">UBICACION GEOGRAFICA</div>
-    <div id="map-canvas"></div>
+  <div class="card text-white  mb-12" style="max-width: 100%; height:500px">
+    <div class="card-header bg-primary" >UBICACION GEOGRAFICA</div>
+  <div class="card-body" id="map">
+     </div>
    
   </div>
   </div>
@@ -129,7 +134,6 @@
 </div>
 
 </footer>
-
 
 <script src="../controlador/api.js"></script>
 <script src="https://kit.fontawesome.com/18782b87ee.js" crossorigin="anonymous"></script>

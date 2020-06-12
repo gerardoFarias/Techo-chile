@@ -27,18 +27,45 @@ region.addEventListener('change',function(){
 
   });
 
-var defaultBounds = new google.maps.LatlngBounds(
-new google.maps.Latlng(-35.675148 ),
-new google.maps.Latlng(-71.5429688));
 
-var options = {
-  bounds : defaulBounds
-};
+/* 
+  $(document).ready(function(){
+      $('#ingresar').click(function(){
+      var user = ('#NombreMo').val();
+      var pass = $('#ContMo').val();
 
-var input =document.getElementById('pac-input');
-map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+        if($.trim(user).lenght > 0 && $.trim(pass).lenght > 0){
+            $.ajax({
+
+              url : "../model/usuario.php",
+              method:"POST",
+              data : {
+             }
 
 
-var autocomplete = new google.maps.places.Autocomplete(input,options);
- 
- 
+
+            }),
+        }
+
+          });
+
+    }); */
+
+
+
+  
+    mapboxgl.accessToken = 'pk.eyJ1IjoiZ2VyZmFyZ2FsIiwiYSI6ImNrYmJmbWI5OTAwdDYyenFlNHR6bmk0MWsifQ.npsztI6PtqfmdB3KksJlfA';
+    var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11',
+    center:[-70.669266,-33.448891],
+    zoom:10
+    });
+
+
+    var geocoder = new MapboxGeocoder({
+      accessToken: mapboxgl.accessToken,
+      mapboxgl: mapboxgl
+      });
+       
+      document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
