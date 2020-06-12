@@ -17,7 +17,13 @@
         function addUser($entity){
             $query = $this->connect()->prepare('INSERT INTO techochile.tr_usuario(nombres,apellido_paterno,apellido_materno,email,password,estado,perfil_id) VALUES(:nombres,:apellido_paterno,:apellido_materno,:email,:password,:estado,:perfil_id)');
 
-            $querySucces = $query->execute(['nombres'=>$entity->{'nombres'},'apellido_paterno'=>$entity->{'apellido_paterno'},'apellido_materno'=>$entity->{'apellido_materno'}, 'email'=>$entity->{'email'},'password'=>$entity->{'password'},'estado'=>$entity->{'estado'},'perfil_id'=>$entity->{'perfil_id'}]);
+            $querySucces = $query->execute(['nombres'=>$entity->{'nombres'},
+                                            'apellido_paterno'=>$entity->{'apellido_paterno'},
+                                            'apellido_materno'=>$entity->{'apellido_materno'}, 
+                                            'email'=>$entity->{'email'},
+                                            'password'=>$entity->{'password'},
+                                            'estado'=>$entity->{'estado'},
+                                            'perfil_id'=>$entity->{'perfil_id'}]);
             
             return $querySucces;
         }

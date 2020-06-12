@@ -1,17 +1,17 @@
 <?php 
     header('Content-Type: application/json');
-    include_once '../service/usuarioService.php';
+    include_once '../service/mesaTrabajoService.php';
     
     
-    $util = new Util();
-    $api = new usuarioService();
+    
+    $api = new MesaTrabajoService();
 
     switch($_SERVER['REQUEST_METHOD']){
         case 'GET':
-            if(isset($_GET['id'])){
-                $idUser = $_GET['id'];
-                if(is_numeric($idUser)){
-                    $api->getById($idUser);
+            if(isset($_GET['idComuna'])){
+                $idComuna = $_GET['idComuna'];
+                if(is_numeric($idComuna)){
+                    $api->getByIdComuna($idComuna);
                 }else{
                     $api->error('El parametro debe ser numerico');
                 }
@@ -21,16 +21,16 @@
         break;
         case 'POST':
             $entity = json_decode(file_get_contents('php://input'));
-            $api->addNewUser($entity);
+            $api->addNewMesaTrabajo($entity);
             
         break;
         case 'PUT':
             $entity = json_decode(file_get_contents('php://input'));
-            $api->modifyUser($entity);
+            $api->modifyTrabajo($entity);
         break;
         case 'DELETE':
-            $idUser = $_GET['id'];
-            $api->deleteUser($idUser);
+            $idMesaTrabajo = $_GET['id'];
+            $api->deleteTrabajo($idMesaTrabajo);
         break;
         default:
             echo json_encode('Metodo no soportado');
