@@ -141,6 +141,78 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "GET_REGIONES",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/Techo-chile/api/regions.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Techo-chile",
+						"api",
+						"regions.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET_PROVINCIAS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/Techo-chile/api/provincias.php?id=7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Techo-chile",
+						"api",
+						"provincias.php"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "7"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET_COMUNAS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/Techo-chile/api/comunas.php?id=23",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Techo-chile",
+						"api",
+						"comunas.php"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "23"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"protocolProfileBehavior": {}
