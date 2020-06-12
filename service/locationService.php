@@ -16,8 +16,8 @@
                 while($row = $res->fetch(PDO::FETCH_ASSOC)){
                     $item = array(
                         'id' => $row['id'],
-                        'region' => $row['region'],
-                        'region_techo' => $row['region_techo']
+                        'region' => $row['region']
+                        
                     );
 
                     array_push($region["regiones"],$item);

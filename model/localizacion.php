@@ -3,11 +3,11 @@
 
     class Localizacion extends DB {
 
-        function getRegions(){
+     function getRegions(){
             $query = $this->connect()->query('SELECT * FROM techochile.cons_region');
             return $query;
         }
-
+      
         function getProvincias($id){
             $query = $this->connect()->prepare('SELECT * FROM techochile.cons_provincia WHERE region_id = :idRegion');
             $query->execute(['idRegion' => $id]);
