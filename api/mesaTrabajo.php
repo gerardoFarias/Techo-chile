@@ -15,7 +15,15 @@
                 }else{
                     $api->error('El parametro debe ser numerico');
                 }
-            }else{
+            }else if($_GET['idRegion']){
+                $idRegion = $_GET['idRegion'];
+                if(is_numeric($idRegion)){
+                    $api->getByIdTecho($idRegion);
+                }else{
+                    $api->error('El parametro debe ser numerico');
+                }
+            }
+            else{
                 $api->getAll();
             }
         break;

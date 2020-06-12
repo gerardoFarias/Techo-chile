@@ -8,8 +8,22 @@
             return $query;
         }
 
+        function obtenerMesasTrabajosByRegion($idTecho){
+            $query = $this->connect()->prepare('SELECT mtrabajo.id, mtrabajo.nombre ,mtrabajo.comunidad ,mtrabajo.latitud, mtrabajo.longitud, mtrabajo.estado, mtrabajo.comuna_id
+                                                FROM techochile.tr_mesa_trabajo mtrabajo
+                                                INNER JOIN techochile.cons_comuna ccomuna
+                                                ON mtrabajo.comuna_id = ccomuna.id
+                                                INNER JOIN techochile.cons_provincia cprovincia
+                                                ON cprovincia.id = ccomuna.provincia_id
+                                                INNER JOIN techochile.cons_region cregion
+                                                ON cregion.id = cprovincia.region_id
+                                                WHERE cregion.region_techo = :idTecho');
+            $query->execute(['idTecho' => $idTecho]);
+            return $query;
+        }
+
         function obtenerMesasTrabajosByComuna($id){
-            $query = $this->connect()->prepare('SELECT * FROM techochile.tr_mesa_trabajo where comuna_id = :id;');
+            $query = $this->connect()->prepare('SELECT * FROM techochile.tr_mesa_trabajo where comuna_id = :id');
             $query->execute(['id' => $id]);
             return $query;
         }
