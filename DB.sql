@@ -105,6 +105,7 @@ DROP TABLE IF EXISTS `cons_region`;
 CREATE TABLE `cons_region` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `region` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `region_techo` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -115,7 +116,7 @@ CREATE TABLE `cons_region` (
 
 LOCK TABLES `cons_region` WRITE;
 /*!40000 ALTER TABLE `cons_region` DISABLE KEYS */;
-INSERT INTO `cons_region` VALUES (1,'Arica y Parinacota'),(2,'Tarapacá'),(3,'Antofagasta'),(4,'Atacama'),(5,'Coquimbo'),(6,'Valparaiso'),(7,'Metropolitana de Santiago'),(8,'Libertador General Bernardo O\'Higgins'),(9,'Maule'),(10,'Ñuble'),(11,'Biobío'),(12,'La Araucanía'),(13,'Los Ríos'),(14,'Los Lagos'),(15,'Aysén del General Carlos Ibáñez del Campo'),(16,'Magallanes y de la Antártica Chilena');
+INSERT INTO `cons_region` VALUES (1,'Arica y Parinacota',4),(2,'Tarapacá',1),(3,'Antofagasta',2),(4,'Atacama',3),(5,'Coquimbo',7),(6,'Valparaiso',16),(7,'Metropolitana de Santiago',13),(8,'Libertador General Bernardo O\'Higgins',15),(9,'Maule',12),(10,'Ñuble',14),(11,'Biobío',6),(12,'La Araucanía',8),(13,'Los Ríos',10),(14,'Los Lagos',9),(15,'Aysén del General Carlos Ibáñez del Campo',5),(16,'Magallanes y de la Antártica Chilena',11);
 /*!40000 ALTER TABLE `cons_region` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -216,7 +217,7 @@ CREATE TABLE `tr_mesa_trabajo` (
   PRIMARY KEY (`id`),
   KEY `fk_tr_mesa_trabajo_cons_comuna1_idx` (`comuna_id`),
   CONSTRAINT `fk_tr_mesa_trabajo_cons_comuna1` FOREIGN KEY (`comuna_id`) REFERENCES `cons_comuna` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -225,6 +226,7 @@ CREATE TABLE `tr_mesa_trabajo` (
 
 LOCK TABLES `tr_mesa_trabajo` WRITE;
 /*!40000 ALTER TABLE `tr_mesa_trabajo` DISABLE KEYS */;
+INSERT INTO `tr_mesa_trabajo` VALUES (1,'nombre','comunidad','latitud','longitud',0,1),(2,'Mesa 1','Comunidad 1','-231231','-123123',1,91);
 /*!40000 ALTER TABLE `tr_mesa_trabajo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -277,4 +279,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-06-11 20:20:09
+-- Dump completed on 2020-06-12 13:51:55
