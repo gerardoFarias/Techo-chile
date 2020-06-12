@@ -1,11 +1,9 @@
 
    $.ajax(
-        { url:"regions.php",
-          method:"POST",
-          dataType:"json",
+        { url:"/Techo-chile/api/regions.php",
+          method:"GET",
+          dataType:"json"
         }
-
-
         ).done(function(data){
             
            console.log(data)
@@ -32,7 +30,7 @@
         
              $.ajax(
                      { 
-                       url:"/Techo-chile/api/provincias.php?id=7?id=" +idRegion,
+                       url:"/Techo-chile/api/provincias.php?id=" +idRegion,
                        method:"GET",
                        datatype:"json"             
         
