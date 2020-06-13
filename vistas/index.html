@@ -93,26 +93,23 @@
           <label for="disabledSelect">Region</label>
           <select id="regiones" class="form-control">
           </select>
-          <!-- <label> Provincia</label>
-          <select class="form-control" id="provincias">
-
-          </select>
-
-
-
-          <label>Comuna</label>
-          <select id="comunas" class="form-control">
-
-          </select>
-
-          <label for="disabledSelect">Comunidad</label>
-          <select id="comunidades" class="form-control">
-          </select>
-
-          <label for="disabledSelect">Nombre</label>
-          <select class="form-control" id="nombres">
-            <option></option>
-          </select> -->
+  
+          <table class="table text text-light ">
+          
+            <thead >
+              <tr>
+                
+                <th scope="col">Nombre</th>
+                <th scope="col">Comunidad</th>
+                <th scope="col">Region</th>
+              </tr>
+            </thead >
+            <tbody id="tabla">   
+              <tr >
+              
+              </tr>
+            </tbody>
+          </table>
 
 
 
@@ -124,7 +121,7 @@
 
       </div>
       <div class="form-group col-md-12 mapa">
-        <div class="card text-white bg-primary mb-12" style="max-width: 100%; height:500px">
+        <div class="card text-white bg-primary mb-12" style="max-width: 100%; height:400px">
           <div class="card-header">UBICACION GEOGRAFICA</div>
 
           <div class="card-body" id="map">

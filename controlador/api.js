@@ -6,7 +6,7 @@
     }
     ).done(function(data){
         
-       
+       console.log(data)
         llenarRegiones(data.regiones)
     }).fail(function(){});
     
@@ -36,7 +36,7 @@
           datatype:"json"             
 
         }).done(function(data){
-    
+    console.log(data)
             llenarTabla(data.mesasTrabajos)
         
         });
@@ -47,10 +47,9 @@
       var select = $('#tabla');
       select.html("");
       data.forEach(e=>{
-         var tab ="<tr>"+"<td >"+e.nombre+"</td>"+"<td >"+e.comunidad+"</td>"+"<td >"+e.region+"</td>"+"</tr>";
-                  
-                 
-                  select.append(tab); 
+
+         var tab ="<tr>"+"<td >"+e.nombre+"</td>"+"<td >"+e.comunidad+"</td>"+"<td >"+e.region+"</td>"+"</tr>"
+              select.append(tab); 
       })
 
 
